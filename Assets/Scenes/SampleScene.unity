@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 1892679006}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -131,9 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7225297}
   - component: {fileID: 7225298}
-  - component: {fileID: 7225300}
   - component: {fileID: 7225299}
   - component: {fileID: 7225301}
+  - component: {fileID: 7225300}
   m_Layer: 0
   m_Name: Cookies1-4
   m_TagString: Cookie
@@ -170,6 +172,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -226,8 +229,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7225300
-BoxCollider2D:
+--- !u!60 &7225300
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -242,16 +245,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!210 &7225301
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -273,8 +280,8 @@ GameObject:
   m_Component:
   - component: {fileID: 109879685}
   - component: {fileID: 109879686}
-  - component: {fileID: 109879688}
   - component: {fileID: 109879687}
+  - component: {fileID: 109879688}
   m_Layer: 0
   m_Name: Cookies3-2
   m_TagString: Cookie
@@ -311,6 +318,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -367,8 +375,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &109879688
-BoxCollider2D:
+--- !u!60 &109879688
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -390,9 +398,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &200572341
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +438,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -515,10 +528,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66032b0ed10ab6341a73a81e15617f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tamama: {fileID: 0}
   CookieArray_X: 0
   CookieArray_Y: 0
   CookiesSpriteArray: []
   CookiesSpriteArrayNum: 0
+  Ani: {fileID: 0}
   GameStart: 0
   GameOver: 0
 --- !u!4 &205216860
@@ -545,8 +560,8 @@ GameObject:
   m_Component:
   - component: {fileID: 318865275}
   - component: {fileID: 318865276}
-  - component: {fileID: 318865278}
   - component: {fileID: 318865277}
+  - component: {fileID: 318865278}
   m_Layer: 0
   m_Name: Cookies3-1
   m_TagString: Cookie
@@ -583,6 +598,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -639,8 +655,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &318865278
-BoxCollider2D:
+--- !u!60 &318865278
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -662,9 +678,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &326620828
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,8 +695,8 @@ GameObject:
   m_Component:
   - component: {fileID: 326620829}
   - component: {fileID: 326620830}
-  - component: {fileID: 326620832}
   - component: {fileID: 326620831}
+  - component: {fileID: 326620832}
   m_Layer: 0
   m_Name: Cookies3-7
   m_TagString: Cookie
@@ -713,6 +733,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -769,8 +790,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &326620832
-BoxCollider2D:
+--- !u!60 &326620832
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -785,16 +806,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &346910898
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,8 +830,8 @@ GameObject:
   m_Component:
   - component: {fileID: 346910899}
   - component: {fileID: 346910900}
-  - component: {fileID: 346910902}
   - component: {fileID: 346910901}
+  - component: {fileID: 346910902}
   m_Layer: 0
   m_Name: Cookies3-3
   m_TagString: Cookie
@@ -843,6 +868,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -899,8 +925,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &346910902
-BoxCollider2D:
+--- !u!60 &346910902
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -922,9 +948,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &379394551
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,9 +1002,9 @@ GameObject:
   m_Component:
   - component: {fileID: 396157630}
   - component: {fileID: 396157634}
-  - component: {fileID: 396157633}
   - component: {fileID: 396157632}
   - component: {fileID: 396157631}
+  - component: {fileID: 396157633}
   m_Layer: 0
   m_Name: Cookies5-7
   m_TagString: Cookie
@@ -1028,8 +1058,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &396157633
-BoxCollider2D:
+--- !u!60 &396157633
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1051,9 +1081,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &396157634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1069,6 +1103,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1151,8 +1186,8 @@ GameObject:
   m_Component:
   - component: {fileID: 415245441}
   - component: {fileID: 415245442}
-  - component: {fileID: 415245444}
   - component: {fileID: 415245443}
+  - component: {fileID: 415245444}
   m_Layer: 0
   m_Name: Cookies4-7
   m_TagString: Cookie
@@ -1189,6 +1224,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1245,8 +1281,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &415245444
-BoxCollider2D:
+--- !u!60 &415245444
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1261,16 +1297,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &447659254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,9 +1321,9 @@ GameObject:
   m_Component:
   - component: {fileID: 447659255}
   - component: {fileID: 447659259}
-  - component: {fileID: 447659258}
   - component: {fileID: 447659257}
   - component: {fileID: 447659256}
+  - component: {fileID: 447659258}
   m_Layer: 0
   m_Name: Cookies5-3
   m_TagString: Cookie
@@ -1337,8 +1377,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &447659258
-BoxCollider2D:
+--- !u!60 &447659258
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1360,9 +1400,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &447659259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1378,6 +1422,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1506,8 +1551,8 @@ GameObject:
   m_Component:
   - component: {fileID: 575507718}
   - component: {fileID: 575507719}
-  - component: {fileID: 575507721}
   - component: {fileID: 575507720}
+  - component: {fileID: 575507721}
   m_Layer: 0
   m_Name: Cookies4-1
   m_TagString: Cookie
@@ -1544,6 +1589,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1600,8 +1646,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &575507721
-BoxCollider2D:
+--- !u!60 &575507721
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1623,9 +1669,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &595680038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,8 +1686,8 @@ GameObject:
   m_Component:
   - component: {fileID: 595680039}
   - component: {fileID: 595680040}
-  - component: {fileID: 595680042}
   - component: {fileID: 595680041}
+  - component: {fileID: 595680042}
   m_Layer: 0
   m_Name: Cookies2-3
   m_TagString: Cookie
@@ -1674,6 +1724,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1730,8 +1781,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &595680042
-BoxCollider2D:
+--- !u!60 &595680042
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1753,9 +1804,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &640336791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,8 +1821,8 @@ GameObject:
   m_Component:
   - component: {fileID: 640336792}
   - component: {fileID: 640336793}
-  - component: {fileID: 640336795}
   - component: {fileID: 640336794}
+  - component: {fileID: 640336795}
   m_Layer: 0
   m_Name: Cookies2-4
   m_TagString: Cookie
@@ -1804,6 +1859,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1860,8 +1916,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &640336795
-BoxCollider2D:
+--- !u!60 &640336795
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1883,9 +1939,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &649874432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,9 +1956,9 @@ GameObject:
   m_Component:
   - component: {fileID: 649874433}
   - component: {fileID: 649874437}
-  - component: {fileID: 649874436}
   - component: {fileID: 649874435}
   - component: {fileID: 649874434}
+  - component: {fileID: 649874436}
   m_Layer: 0
   m_Name: Cookies5-4
   m_TagString: Cookie
@@ -1952,8 +2012,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &649874436
-BoxCollider2D:
+--- !u!60 &649874436
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1975,9 +2035,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &649874437
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1993,6 +2057,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2038,8 +2103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 713855505}
   - component: {fileID: 713855506}
-  - component: {fileID: 713855508}
   - component: {fileID: 713855507}
+  - component: {fileID: 713855508}
   m_Layer: 0
   m_Name: Cookies3-6
   m_TagString: Cookie
@@ -2076,6 +2141,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2132,8 +2198,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &713855508
-BoxCollider2D:
+--- !u!60 &713855508
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2155,9 +2221,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &790066942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,9 +2275,9 @@ GameObject:
   m_Component:
   - component: {fileID: 800356438}
   - component: {fileID: 800356439}
-  - component: {fileID: 800356441}
   - component: {fileID: 800356440}
   - component: {fileID: 800356442}
+  - component: {fileID: 800356441}
   m_Layer: 0
   m_Name: Cookies1-3
   m_TagString: Cookie
@@ -2244,6 +2314,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2300,8 +2371,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &800356441
-BoxCollider2D:
+--- !u!60 &800356441
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2316,16 +2387,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.8, y: 3.48}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!210 &800356442
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -2384,8 +2459,8 @@ GameObject:
   m_Component:
   - component: {fileID: 888925472}
   - component: {fileID: 888925473}
-  - component: {fileID: 888925475}
   - component: {fileID: 888925474}
+  - component: {fileID: 888925475}
   m_Layer: 0
   m_Name: Cookies2-1
   m_TagString: Cookie
@@ -2422,6 +2497,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2478,8 +2554,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &888925475
-BoxCollider2D:
+--- !u!60 &888925475
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2494,16 +2570,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &907916155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,9 +2594,10 @@ GameObject:
   m_Component:
   - component: {fileID: 907916158}
   - component: {fileID: 907916157}
-  - component: {fileID: 907916159}
   - component: {fileID: 907916160}
+  - component: {fileID: 907916161}
   - component: {fileID: 907916156}
+  - component: {fileID: 907916162}
   m_Layer: 0
   m_Name: Tamama
   m_TagString: Tamama
@@ -2524,8 +2605,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &907916156
-BoxCollider2D:
+--- !u!60 &907916156
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2547,9 +2628,68 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.84, y: 3.84}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.56, y: -1.6899999}
+      - {x: 1.79, y: -1.4499999}
+      - {x: 1.89, y: -1.3299999}
+      - {x: 1.92, y: -1.25}
+      - {x: 1.92, y: -1.04}
+      - {x: 1.87, y: -0.93}
+      - {x: 1.7099999, y: -0.66999996}
+      - {x: 1.68, y: -0.59}
+      - {x: 1.49, y: -0.28}
+      - {x: 1.4, y: -0.04}
+      - {x: 1.37, y: 0.38}
+      - {x: 1.3199999, y: 0.71}
+      - {x: 1.2099999, y: 1.04}
+      - {x: 1.15, y: 1.13}
+      - {x: 1.01, y: 1.3299999}
+      - {x: 0.95, y: 1.39}
+      - {x: 0.75, y: 1.54}
+      - {x: 0.52, y: 1.7099999}
+      - {x: 0.24, y: 1.8399999}
+      - {x: 0.16, y: 1.87}
+      - {x: -0.04, y: 1.88}
+      - {x: -0.13, y: 1.92}
+      - {x: -0.88, y: 1.92}
+      - {x: -0.91999996, y: 1.9}
+      - {x: -1.11, y: 1.8199999}
+      - {x: -1.38, y: 1.61}
+      - {x: -1.55, y: 1.4399999}
+      - {x: -1.8299999, y: 1.0799999}
+      - {x: -1.8499999, y: 1.09}
+      - {x: -1.92, y: 1}
+      - {x: -1.92, y: 0.82}
+      - {x: -1.88, y: 0.72999996}
+      - {x: -1.63, y: 0.42}
+      - {x: -1.43, y: 0.25}
+      - {x: -1.43, y: 0.22999999}
+      - {x: -1.0799999, y: -0.12}
+      - {x: -0.9, y: -0.26}
+      - {x: -0.71, y: -0.44}
+      - {x: -0.79999995, y: -0.61}
+      - {x: -1.03, y: -1.0799999}
+      - {x: -1.0799999, y: -1.15}
+      - {x: -1.15, y: -1.24}
+      - {x: -1.29, y: -1.4699999}
+      - {x: -1.3, y: -1.53}
+      - {x: -1.27, y: -1.5799999}
+      - {x: -1.04, y: -1.7199999}
+      - {x: -0.95, y: -1.76}
+      - {x: -0.63, y: -1.8299999}
+      - {x: -0.37, y: -1.8399999}
+      - {x: -0.31, y: -1.81}
+      - {x: -0.13, y: -1.8}
+      - {x: 0.04, y: -1.73}
+      - {x: 0.16, y: -1.68}
+      - {x: 0.19, y: -1.7199999}
+      - {x: 0.48999998, y: -1.9}
+      - {x: 0.59, y: -1.91}
+      - {x: 1.14, y: -1.91}
+      - {x: 1.24, y: -1.8299999}
+      - {x: 1.31, y: -1.81}
+      - {x: 1.42, y: -1.79}
 --- !u!212 &907916157
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2565,6 +2705,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2614,25 +2755,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &907916159
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907916155}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e65af5ffc3bcd440bf7a11e80a70899, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &907916160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,6 +2774,49 @@ MonoBehaviour:
   YTemp: 0
   XCount: 0
   YCount: 0
+  UnbalancedCookie: 
+  AllOfCookieEaten: 
+  TempCookieEaten: 
+--- !u!50 &907916161
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907916155}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!95 &907916162
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907916155}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbdc06bf2f852be47b17e1eb7b6c857e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &980873230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,8 +2827,8 @@ GameObject:
   m_Component:
   - component: {fileID: 980873231}
   - component: {fileID: 980873232}
-  - component: {fileID: 980873234}
   - component: {fileID: 980873233}
+  - component: {fileID: 980873234}
   m_Layer: 0
   m_Name: Cookies2-2
   m_TagString: Cookie
@@ -2700,6 +2865,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2756,8 +2922,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &980873234
-BoxCollider2D:
+--- !u!60 &980873234
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2779,9 +2945,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &981767644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,9 +2962,9 @@ GameObject:
   m_Component:
   - component: {fileID: 981767645}
   - component: {fileID: 981767649}
-  - component: {fileID: 981767648}
   - component: {fileID: 981767647}
   - component: {fileID: 981767646}
+  - component: {fileID: 981767648}
   m_Layer: 0
   m_Name: Cookies5-5
   m_TagString: Cookie
@@ -2848,8 +3018,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &981767648
-BoxCollider2D:
+--- !u!60 &981767648
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2871,9 +3041,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &981767649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2889,6 +3063,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2934,9 +3109,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1031438256}
   - component: {fileID: 1031438257}
-  - component: {fileID: 1031438259}
   - component: {fileID: 1031438258}
   - component: {fileID: 1031438260}
+  - component: {fileID: 1031438259}
   m_Layer: 0
   m_Name: Cookies1-2
   m_TagString: Cookie
@@ -2973,6 +3148,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3029,8 +3205,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1031438259
-BoxCollider2D:
+--- !u!60 &1031438259
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3045,16 +3221,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.8, y: 3.48}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!210 &1031438260
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3076,8 +3256,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1171600592}
   - component: {fileID: 1171600593}
-  - component: {fileID: 1171600595}
   - component: {fileID: 1171600594}
+  - component: {fileID: 1171600595}
   m_Layer: 0
   m_Name: Cookies4-2
   m_TagString: Cookie
@@ -3114,6 +3294,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3170,8 +3351,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1171600595
-BoxCollider2D:
+--- !u!60 &1171600595
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3193,9 +3374,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1391880850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,9 +3391,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1391880851}
   - component: {fileID: 1391880852}
-  - component: {fileID: 1391880854}
   - component: {fileID: 1391880853}
   - component: {fileID: 1391880855}
+  - component: {fileID: 1391880854}
   m_Layer: 0
   m_Name: Cookies1-7
   m_TagString: Cookie
@@ -3245,6 +3430,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3301,8 +3487,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1391880854
-BoxCollider2D:
+--- !u!60 &1391880854
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3324,9 +3510,66 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.93, y: -1.28}
+      - {x: 1.0799999, y: -1.18}
+      - {x: 1.25, y: -1}
+      - {x: 1.4, y: -0.78999996}
+      - {x: 1.49, y: -0.63}
+      - {x: 1.55, y: -0.48}
+      - {x: 1.5799999, y: -0.34}
+      - {x: 1.5999999, y: -0.26}
+      - {x: 1.5999999, y: 0.17}
+      - {x: 1.5, y: 0.47}
+      - {x: 1.42, y: 0.61}
+      - {x: 1.31, y: 0.79999995}
+      - {x: 1.16, y: 1.01}
+      - {x: 1.02, y: 1.17}
+      - {x: 0.91999996, y: 1.27}
+      - {x: 0.78999996, y: 1.37}
+      - {x: 0.59, y: 1.48}
+      - {x: 0.32, y: 1.55}
+      - {x: 0.17999999, y: 1.56}
+      - {x: -0.02, y: 1.56}
+      - {x: -0.11, y: 1.53}
+      - {x: -0.19999999, y: 1.49}
+      - {x: -0.34, y: 1.49}
+      - {x: -0.42999998, y: 1.4599999}
+      - {x: -0.53999996, y: 1.4}
+      - {x: -0.59999996, y: 1.3399999}
+      - {x: -0.65, y: 1.35}
+      - {x: -0.81, y: 1.3}
+      - {x: -0.83, y: 1.26}
+      - {x: -0.96, y: 1.22}
+      - {x: -1.12, y: 1.1}
+      - {x: -1.1999999, y: 0.96999997}
+      - {x: -1.35, y: 0.75}
+      - {x: -1.39, y: 0.65999997}
+      - {x: -1.48, y: 0.32}
+      - {x: -1.51, y: 0.17999999}
+      - {x: -1.53, y: 0.03}
+      - {x: -1.52, y: -0.06}
+      - {x: -1.5, y: -0.14999999}
+      - {x: -1.5999999, y: -0.22999999}
+      - {x: -1.5999999, y: -0.34}
+      - {x: -1.52, y: -0.48999998}
+      - {x: -1.4399999, y: -0.59}
+      - {x: -1.3299999, y: -0.78}
+      - {x: -1.28, y: -0.85999995}
+      - {x: -1.14, y: -1.03}
+      - {x: -0.88, y: -1.27}
+      - {x: -0.74, y: -1.3399999}
+      - {x: -0.42999998, y: -1.48}
+      - {x: -0.29, y: -1.55}
+      - {x: -0.07, y: -1.56}
+      - {x: 0.12, y: -1.55}
+      - {x: 0.12, y: -1.5699999}
+      - {x: 0.21, y: -1.5699999}
+      - {x: 0.45, y: -1.53}
+      - {x: 0.58, y: -1.48}
+      - {x: 0.75, y: -1.4399999}
+      - {x: 0.78999996, y: -1.38}
 --- !u!210 &1391880855
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3348,9 +3591,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1415622353}
   - component: {fileID: 1415622357}
-  - component: {fileID: 1415622356}
   - component: {fileID: 1415622355}
   - component: {fileID: 1415622354}
+  - component: {fileID: 1415622356}
   m_Layer: 0
   m_Name: Cookies5-1
   m_TagString: Cookie
@@ -3404,8 +3647,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1415622356
-BoxCollider2D:
+--- !u!60 &1415622356
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3427,9 +3670,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &1415622357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3445,6 +3692,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3490,9 +3738,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1443638420}
   - component: {fileID: 1443638421}
-  - component: {fileID: 1443638423}
   - component: {fileID: 1443638422}
   - component: {fileID: 1443638424}
+  - component: {fileID: 1443638423}
   m_Layer: 0
   m_Name: Cookies1-5
   m_TagString: Cookie
@@ -3529,6 +3777,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3585,8 +3834,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1443638423
-BoxCollider2D:
+--- !u!60 &1443638423
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3608,9 +3857,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!210 &1443638424
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3632,8 +3885,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1465581711}
   - component: {fileID: 1465581712}
-  - component: {fileID: 1465581714}
   - component: {fileID: 1465581713}
+  - component: {fileID: 1465581714}
   m_Layer: 0
   m_Name: Cookies2-5
   m_TagString: Cookie
@@ -3670,6 +3923,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3726,8 +3980,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1465581714
-BoxCollider2D:
+--- !u!60 &1465581714
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3749,9 +4003,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1503986329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,9 +4020,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1503986330}
   - component: {fileID: 1503986334}
-  - component: {fileID: 1503986333}
   - component: {fileID: 1503986332}
   - component: {fileID: 1503986331}
+  - component: {fileID: 1503986333}
   m_Layer: 0
   m_Name: Cookies5-6
   m_TagString: Cookie
@@ -3818,8 +4076,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1503986333
-BoxCollider2D:
+--- !u!60 &1503986333
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3841,9 +4099,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &1503986334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3859,6 +4121,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3904,8 +4167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1569260098}
   - component: {fileID: 1569260099}
-  - component: {fileID: 1569260101}
   - component: {fileID: 1569260100}
+  - component: {fileID: 1569260101}
   m_Layer: 0
   m_Name: Cookies2-7
   m_TagString: Cookie
@@ -3942,6 +4205,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3998,8 +4262,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1569260101
-BoxCollider2D:
+--- !u!60 &1569260101
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4014,16 +4278,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1671241315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,6 +4303,7 @@ GameObject:
   - component: {fileID: 1671241317}
   - component: {fileID: 1671241316}
   - component: {fileID: 1671241318}
+  - component: {fileID: 1671241320}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -4093,6 +4362,57 @@ SortingGroup:
   m_SortingLayerID: 671254807
   m_SortingLayer: 1
   m_SortingOrder: 0
+--- !u!212 &1671241320
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671241315}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1680386336
 GameObject:
   m_ObjectHideFlags: 0
@@ -4103,8 +4423,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1680386337}
   - component: {fileID: 1680386338}
-  - component: {fileID: 1680386340}
   - component: {fileID: 1680386339}
+  - component: {fileID: 1680386340}
   m_Layer: 0
   m_Name: Cookies2-6
   m_TagString: Cookie
@@ -4141,6 +4461,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4197,8 +4518,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1680386340
-BoxCollider2D:
+--- !u!60 &1680386340
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4220,9 +4541,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1740866852
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,8 +4558,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1740866853}
   - component: {fileID: 1740866854}
-  - component: {fileID: 1740866856}
   - component: {fileID: 1740866855}
+  - component: {fileID: 1740866856}
   m_Layer: 0
   m_Name: Cookies3-4
   m_TagString: Cookie
@@ -4271,6 +4596,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4327,8 +4653,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1740866856
-BoxCollider2D:
+--- !u!60 &1740866856
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4350,9 +4676,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1754363423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,9 +4693,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1754363424}
   - component: {fileID: 1754363428}
-  - component: {fileID: 1754363427}
   - component: {fileID: 1754363426}
   - component: {fileID: 1754363425}
+  - component: {fileID: 1754363427}
   m_Layer: 0
   m_Name: Cookies5-2
   m_TagString: Cookie
@@ -4419,8 +4749,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1754363427
-BoxCollider2D:
+--- !u!60 &1754363427
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4442,9 +4772,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!212 &1754363428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4460,6 +4794,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4505,9 +4840,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1756789172}
   - component: {fileID: 1756789173}
-  - component: {fileID: 1756789175}
   - component: {fileID: 1756789174}
   - component: {fileID: 1756789176}
+  - component: {fileID: 1756789175}
   m_Layer: 0
   m_Name: Cookies1-6
   m_TagString: Cookie
@@ -4544,6 +4879,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4600,8 +4936,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1756789175
-BoxCollider2D:
+--- !u!60 &1756789175
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4616,16 +4952,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!210 &1756789176
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -4647,8 +4987,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1758556760}
   - component: {fileID: 1758556761}
-  - component: {fileID: 1758556763}
   - component: {fileID: 1758556762}
+  - component: {fileID: 1758556763}
   m_Layer: 0
   m_Name: Cookies4-5
   m_TagString: Cookie
@@ -4685,6 +5025,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4741,8 +5082,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1758556763
-BoxCollider2D:
+--- !u!60 &1758556763
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4764,9 +5105,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1812698481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,8 +5122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1812698482}
   - component: {fileID: 1812698483}
-  - component: {fileID: 1812698485}
   - component: {fileID: 1812698484}
+  - component: {fileID: 1812698485}
   m_Layer: 0
   m_Name: Cookies4-4
   m_TagString: Cookie
@@ -4815,6 +5160,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4871,8 +5217,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1812698485
-BoxCollider2D:
+--- !u!60 &1812698485
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4894,9 +5240,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1829371903
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,8 +5257,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1829371904}
   - component: {fileID: 1829371905}
-  - component: {fileID: 1829371907}
   - component: {fileID: 1829371906}
+  - component: {fileID: 1829371907}
   m_Layer: 0
   m_Name: Cookies3-5
   m_TagString: Cookie
@@ -4945,6 +5295,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5001,8 +5352,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1829371907
-BoxCollider2D:
+--- !u!60 &1829371907
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5024,9 +5375,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1881082586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,8 +5392,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1881082587}
   - component: {fileID: 1881082588}
-  - component: {fileID: 1881082590}
   - component: {fileID: 1881082589}
+  - component: {fileID: 1881082590}
   m_Layer: 0
   m_Name: Cookies4-3
   m_TagString: Cookie
@@ -5075,6 +5430,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5131,8 +5487,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1881082590
-BoxCollider2D:
+--- !u!60 &1881082590
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5154,9 +5510,74 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
+--- !u!850595691 &1892679006
+LightingSettings:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Settings.lighting
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_GIWorkflowMode: 1
+  m_EnableBakedLightmaps: 0
+  m_EnableRealtimeLightmaps: 0
+  m_RealtimeEnvironmentLighting: 1
+  m_BounceScale: 1
+  m_AlbedoBoost: 1
+  m_IndirectOutputScale: 1
+  m_UsingShadowmask: 1
+  m_BakeBackend: 0
+  m_LightmapMaxSize: 1024
+  m_BakeResolution: 40
+  m_Padding: 2
+  m_TextureCompression: 1
+  m_AO: 0
+  m_AOMaxDistance: 1
+  m_CompAOExponent: 1
+  m_CompAOExponentDirect: 0
+  m_ExtractAO: 0
+  m_MixedBakeMode: 2
+  m_LightmapsBakeMode: 1
+  m_FilterMode: 1
+  m_LightmapParameters: {fileID: 0}
+  m_ExportTrainingData: 0
+  m_TrainingDataDestination: TrainingData
+  m_RealtimeResolution: 2
+  m_ForceWhiteAlbedo: 0
+  m_ForceUpdates: 0
+  m_FinalGather: 0
+  m_FinalGatherRayCount: 256
+  m_FinalGatherFiltering: 1
+  m_PVRCulling: 1
+  m_PVRSampling: 1
+  m_PVRDirectSampleCount: 32
+  m_PVRSampleCount: 500
+  m_PVREnvironmentSampleCount: 500
+  m_PVREnvironmentReferencePointCount: 2048
+  m_LightProbeSampleCountMultiplier: 4
+  m_PVRBounces: 2
+  m_PVRRussianRouletteStartBounce: 2
+  m_PVREnvironmentMIS: 0
+  m_PVRFilteringMode: 2
+  m_PVRDenoiserTypeDirect: 0
+  m_PVRDenoiserTypeIndirect: 0
+  m_PVRDenoiserTypeAO: 0
+  m_PVRFilterTypeDirect: 0
+  m_PVRFilterTypeIndirect: 0
+  m_PVRFilterTypeAO: 0
+  m_PVRFilteringGaussRadiusDirect: 1
+  m_PVRFilteringGaussRadiusIndirect: 5
+  m_PVRFilteringGaussRadiusAO: 2
+  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+  m_PVRFilteringAtrousPositionSigmaIndirect: 2
+  m_PVRFilteringAtrousPositionSigmaAO: 1
 --- !u!1 &1947590312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,6 +5626,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5261,8 +5683,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1947590316
-BoxCollider2D:
+--- !u!60 &1947590316
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5277,16 +5699,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.8, y: 3.48}
-    newSize: {x: 3.2, y: 3.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &1985610586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,8 +5772,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2134503187}
   - component: {fileID: 2134503188}
-  - component: {fileID: 2134503190}
   - component: {fileID: 2134503189}
+  - component: {fileID: 2134503190}
   m_Layer: 0
   m_Name: Cookies4-6
   m_TagString: Cookie
@@ -5384,6 +5810,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5440,8 +5867,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2134503190
-BoxCollider2D:
+--- !u!60 &2134503190
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5463,6 +5890,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2, y: 3.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
