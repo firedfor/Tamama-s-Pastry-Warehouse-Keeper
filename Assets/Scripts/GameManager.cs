@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
 
         manager = this;
 
-        CookieArray_X = 7;
-        CookieArray_Y = 5;
+        CookieArray_X = 10;
+        CookieArray_Y = 7;
         CookiesSpriteArrayNum = 43;
         r = new System.Random();
         Ani = GetComponent<Animator>();
@@ -77,11 +77,12 @@ public class GameManager : MonoBehaviour
 
     public void EnableCookies()             // 쿠키들을 모두 활성화 시키는 함수입니다.
     {
-        foreach (int y in range(5)) 
+        foreach (int y in range(CookieArray_Y)) 
         {
-            foreach (int x in range(7))
+            foreach (int x in range(CookieArray_X))
             {
                 CookieArray[y, x].gameObject.SetActive(true);
+                tamama.IsCookieEaten[y, x] = false;
             }
         }
     }
@@ -101,9 +102,9 @@ public class GameManager : MonoBehaviour
     public void BeforeBreakCookies()        // 쿠키에 흔들림 효과를 줄 함수입니다
     {
 
-        for (int y = tamama.YCount + 1; y <= 5; y++)
+        for (int y = tamama.YCount + 1; y <= CookieArray_Y; y++)
         {
-            foreach( int x in range(7))
+            foreach( int x in range(CookieArray_X))
             {
                 if(CookieArray[y, x].gameObject.activeSelf == true)
                 {
@@ -119,9 +120,9 @@ public class GameManager : MonoBehaviour
     {
         GameOver = true;
         iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("x", 0.5, "y", 0.5 , "time", 0.75f));
-        foreach (int y in range(5))
+        foreach (int y in range(CookieArray_Y))
         {
-            foreach (int x in range(7))
+            foreach (int x in range(CookieArray_X))
             {
                 CookieArray[y, x].gameObject.GetComponent<Rigidbody2D>().simulated = true;
             }
