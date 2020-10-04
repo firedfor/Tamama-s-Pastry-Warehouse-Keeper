@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
                 tamama.IsCookieEaten[y, x] = false;
             }
         }
+
+        
     }
 
     public void ShakeCookie()
@@ -173,7 +175,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Tamama.gameObject.GetComponent<Animator>().SetBool("GameOver", true);
+        Tamama.gameObject.GetComponent<Animator>().SetBool("Crying", true);
         Tamama.gameObject.GetComponent<Rigidbody2D>().simulated = true;
         iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("x", 0.5, "y", 0.5, "time", 0.75f));
     }
