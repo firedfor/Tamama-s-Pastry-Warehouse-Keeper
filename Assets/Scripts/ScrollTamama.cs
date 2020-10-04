@@ -15,12 +15,12 @@ public class ScrollTamama : MonoBehaviour
     public float YTemp;                     // 타마마의 현재 Y 좌표를 임시로 따오는 변수입니다.
     public sbyte XCount;                     // 타마마가 x좌표로 몇 칸 이동했는지 알기 위한 변수입니다.
     public sbyte YCount;                     // 타마마가 y좌표로 몇 칸 이동했는지 알기 위한 변수입니다.
-    public bool[] UnbalancedCookie;                 // 쿠키가 위에 있는데도 불구하고 밑의 쿠키를 먹었는지 알 수 있는 변수입니다.
     public bool[] AllOfCookieEaten;                      // 쿠키를 전부 다 먹었는지 알 수 있게 하기 위한 변수입니다.
     public sbyte[] TempCookieEaten;                    // 쿠키를 전부 다 먹었는지 확인하기 위한 임시 변수입니다.
     public bool[, ] IsCookieEaten;                            // 쿠키를 먹었는지 먹지 않았는지 체크하는 변수입니다.
     public float ScrollTimer;                                              // 시간을 재주어 타마마가 너무 빠르게 움직이지 않도록 조절해주는 것을 도와주는 변수입니다.
     public float TimeLimit;                                     // 타마마가 이동할 간격을 띄워주는 것을 도와줄 변수입니다.
+    public sbyte CookieCount;                           // 쿠키를 몇개 먹었는지 실시간으로 세어줄 변수입니다
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +33,9 @@ public class ScrollTamama : MonoBehaviour
         TamamaVoiceCycle = new System.Random();
         TempCookieEaten = new sbyte[11] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         AllOfCookieEaten = new bool[11] { false, false, false, false, false, false, false, false, false, false, false };
-        UnbalancedCookie = new bool[11] { false, false, false, false, false, false, false, false, false, false, false };
         IsCookieEaten = new bool[8, 11];
         ScrollTimer = 0;
-        TimeLimit = 0.25f;
+        TimeLimit = 0f;
 
         manager = this.gameObject.AddComponent<GameManager>();
     }
@@ -125,7 +124,7 @@ public class ScrollTamama : MonoBehaviour
                 IsCookieEaten[YCount, XCount] = true;
                 Invoke("SetActiveFalse", 0.15f);
                 iTween.ShakePosition(manager.CookieArray[YCount, XCount], iTween.Hash("x", 0.5f, "y", 0.5f, "time", 0.15f));
-                iTween.FadeTo(manager.CookieArray[YCount, XCount], 0, 0.15f);                
+                iTween.FadeTo(manager.CookieArray[YCount, XCount], 0, 0.15f);
             }
 
             BreakDownCheck();
@@ -134,24 +133,25 @@ public class ScrollTamama : MonoBehaviour
 
     void BreakDownCheck()       // 과자가 불균형하여 무너지는지 판단하여주는 함수입니다.
     {
-        if(IsCookieEaten[YCount, XCount] == true )
+        if( XCount == manager.BombTempX && YCount == manager.BombTempY)
         {
-            foreach (int y in manager.range(manager.CookieArray_Y))
+            manager.BombExplosion();
+        }
+
+        if( IsCookieEaten[YCount, XCount] == true )
+        {
+
+            if(manager.CookieArray[YCount, XCount].gameObject.activeSelf == true)
             {
-                foreach (int x in manager.range(manager.CookieArray_X))
-                {
-                    if (IsCookieEaten[y, x] == true )
-                    {
-                        TempCookieEaten[y]++;
-                    }
-                }
-            }
+                TempCookieEaten[YCount]++;
+            }                
 
             for (int x = 1; x <= 10; x++)
             {
                 if(TempCookieEaten[x] == 10)
                 {
                     AllOfCookieEaten[x] = true;
+                    //Invoke("CookieReload", 0.1f);
                 }
             }
 
@@ -159,7 +159,15 @@ public class ScrollTamama : MonoBehaviour
             {
                 if (AllOfCookieEaten[YCount + 1] == false && AllOfCookieEaten[YCount] == true)
                 {
-                    manager.GameOverBreakDown();
+                    if(YCount + 1 == manager.BombTempY && TempCookieEaten[YCount + 1] == 9)
+                    {
+                        manager.BeforeBreakCookies();
+                    }
+                    else
+                    {
+                        manager.GameOverBreakDown();
+                    }
+                    
                 }
                 else if(AllOfCookieEaten[YCount + 1] == false && TempCookieEaten[YCount] > 0)
                 {
@@ -167,7 +175,6 @@ public class ScrollTamama : MonoBehaviour
                 }
             }
         
-            TempCookieEaten = new sbyte [11] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         }
     }
 
@@ -175,4 +182,11 @@ public class ScrollTamama : MonoBehaviour
     {
         manager.CookieArray[YCount, XCount].gameObject.SetActive(false);
     }
+
+    /*public void CookieReload()
+    {
+        manager.CookieReload(ReloadTempY);
+    }
+    */
+
 }
